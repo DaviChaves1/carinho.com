@@ -1,0 +1,150 @@
+:root {
+  --matrix-txt: #ff66cc;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+  font-family: "Pacifico", cursive;
+  overflow: hidden;
+  position: relative;
+  transition: background-color 0.5s ease;
+}
+
+#configScreen {
+  color: white;
+  text-align: center;
+  padding: 2rem;
+  font-size: 18px;
+}
+
+input, textarea {
+  padding: 0.5rem;
+  font-family: "Pacifico", cursive;
+  width: 80%;
+  max-width: 300px;
+  border-radius: 10px;
+  border: none;
+  margin-top: 5px;
+}
+
+button {
+  padding: 10px 20px;
+  font-family: "Pacifico", cursive;
+  background-color: #ff99cc;
+  border: none;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.Love__You {
+  color: var(--matrix-txt);
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 100vh;
+  padding: 1rem;
+  text-align: center;
+  font-size: 14px;
+  justify-content: center;
+  align-items: center;
+}
+
+.wavy {
+  display: inline-block;
+  animation: wave 1.2s infinite ease-in-out;
+}
+
+@keyframes wave {
+  0% { transform: translateY(0); }
+  25% { transform: translateY(2px); }
+  50% { transform: translateY(-3px); }
+  75% { transform: translateY(2px); }
+  100% { transform: translateY(0); }
+}
+
+.final-message {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  text-align: center;
+  font-size: 32px;
+  color: #ff99cc;
+  font-weight: bold;
+  opacity: 0;
+  animation: showMessage 2s ease-in-out forwards;
+  animation-delay: 2s;
+}
+
+@keyframes showMessage {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.heart, .petal {
+  position: absolute;
+  font-size: 30px;
+  opacity: 0.5;
+  pointer-events: none;
+  animation: floatUp 8s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(100vh); opacity: 0.5; }
+  to { transform: translateY(-10vh); opacity: 0; }
+}
+
+.timer, .last-visit {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  color: #ff99cc;
+  font-size: 16px;
+}
+
+.last-visit {
+  top: 30px;
+  font-size: 14px;
+}
+
+.secret {
+  position: fixed;
+  bottom: 60px;
+  width: 100%;
+  text-align: center;
+  font-size: 26px;
+  color: #ffddee;
+  font-weight: bold;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.day-mode {
+  background-color: #ffeef8 !important;
+}
+
+.day-mode .Love__You {
+  color: #ff3399;
+}
+
+.fadeout {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  background: rgba(0,0,0,0.8);
+  color: white;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: 99999;
+  transition: opacity 2s;
+}
+
+/* Esconde a tela principal no início */
+#love-container, .timer, .last-visit, .final-message, .secret, .fadeout {
+  display: none;
+}
